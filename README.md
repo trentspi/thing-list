@@ -15,3 +15,6 @@ Stop hard-coding _things_ altogether. Use only the things that were added via th
 ### Super Mega Bonus Credit Hyper Fighting
 
 Make the "remove" button work.
+
+* State is managed in App.js
+* Need method like addThing() { }
