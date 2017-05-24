@@ -16,10 +16,10 @@ button.add-thing {
           box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
 }
 
-button:hover {
+button[class="add-thing"]:hover {
   background-color: #F5DC00;
 }
 
-button.remove:hover {
+button[class="add-thing"].remove:hover {
   background-color: #F5B700;
 }
