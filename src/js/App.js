@@ -19,21 +19,21 @@ class App extends Component {
 
   addThing = () => {
     const things = {...this.state.things}
-    const thing = this.thing()
-    things[thing.id] = thing
-    this.setState({ things })
+    const thing = this.thing();
+    things[thing.id] = thing;
+    this.setState({ things });
   }
 
   saveThing = (thing) => {
     const things = {...this.state.things}
-    things[thing.id] = thing
-    this.setState({ things })
+    things[thing.id] = thing;
+    this.setState({ things });
   }
 
   removeThing = (thing) => {
     const things = {...this.state.things}
-    delete things[thing.id]
-    this.setState({ things })
+    delete things[thing.id];
+    this.setState({ things });
   }
 
   render() {

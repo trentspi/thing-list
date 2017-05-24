@@ -1,13 +1,13 @@
 import React from 'react';
-import ContentEditable from 'react-contenteditable'
+import ContentEditable from 'react-contenteditable';
 
 import '../css/Thing.css';
 
 
 const Thing = ({ thing, saveThing, removeThing}) => {
   const updateName = (ev) => {
-    thing.name = ev.target.value
-    saveThing(thing)
+    thing.name = ev.target.value;
+    saveThing(thing);
   }
 
   return (
