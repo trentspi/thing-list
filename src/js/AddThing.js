@@ -1,12 +1,9 @@
-import React from 'react';
-import '../css/AddThing.css';
+import React from 'react'
 
-const AddThing = () => {
-  return (
-    <div>
-      <button className="add-thing">Add Thing</button>
-    </div>
-  )
+import '../css/AddThing.css'
+
+const AddThing = ({ addThing }) => {
+  return <button className="add-thing" onClick={addThing}>Add Something</button>
 }
 
-export default AddThing;
+export default AddThing
