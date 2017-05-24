@@ -1,8 +1,11 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css);
 
 body {
-  background: #00b4ff;
+  background: #242526;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+h2 {
+  color: white;
 }
