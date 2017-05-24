@@ -9,6 +9,13 @@ class Thing extends React.Component {
     this.nameInput.htmlEl.focus();
   }
 
+  blurOnEnter = (ev) => {
+    if (ev.key === 'Enter') {
+      ev.preventDefault();
+      ev.target.blur();
+    }
+  }
+
   updateName = (ev) => {
     const {
       thing,
@@ -35,6 +42,7 @@ class Thing extends React.Component {
             className="name"
             html={thing.name}
             onChange={this.updateName}
+            onKeyPress={this.blurOnEnter}
             ref={input => this.nameInput = input}
           />
           <Actions thing={thing} saveThing={saveThing} removeThing={removeThing} />
