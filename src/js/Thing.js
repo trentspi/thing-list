@@ -4,31 +4,45 @@ import Actions from './Actions';
 import '../css/Thing.css';
 
 
-const Thing = ({ thing, saveThing, removeThing}) => {
-  const updateName = (ev) => {
+class Thing extends React.Component {
+  componentDidMount() {
+    this.nameInput.htmlEl.focus();
+  }
+
+  updateName = (ev) => {
+    const {
+      thing,
+      saveThing,
+      removeThing
+    } = this.props
     thing.name = ev.target.value;
     saveThing(thing);
   }
 
-  const props = {
-    thing,
-    saveThing,
-    removeThing
+
+
+  render() {
+    const {
+      thing,
+      saveThing,
+      removeThing
+    } = this.props
+    return (
+      <li className="Thing">
+        <input type="checkbox" />
+        <div className="details">
+          <ContentEditable
+            className="name"
+            html={thing.name}
+            onChange={this.updateName}
+            ref={input => this.nameInput = input}
+          />
+          <Actions thing={thing} saveThing={saveThing} removeThing={removeThing} />
+        </div>
+      </li>
+    )
   }
 
-  return (
-    <li className="Thing">
-      <input type="checkbox" />
-      <div className="details">
-        <ContentEditable
-          className="name"
-          html={thing.name}
-          onChange={updateName}
-        />
-        <Actions {...props}/>
-      </div>
-    </li>
-  )
 }
 
 export default Thing;
