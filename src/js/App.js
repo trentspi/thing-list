@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import AddThing from './AddThing';
 import ThingList from './ThingList';
 
 import '../css/App.css';
@@ -28,6 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <AddThing />
         <ThingList things={this.state.things} />
       </div>
     );
