@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
-
+import Actions from './Actions';
 import '../css/Thing.css';
 
 
@@ -8,6 +8,12 @@ const Thing = ({ thing, saveThing, removeThing}) => {
   const updateName = (ev) => {
     thing.name = ev.target.value;
     saveThing(thing);
+  }
+
+  const props = {
+    thing,
+    saveThing,
+    removeThing
   }
 
   return (
@@ -19,11 +25,7 @@ const Thing = ({ thing, saveThing, removeThing}) => {
           html={thing.name}
           onChange={updateName}
         />
-        <span className="actions">
-        <button className="remove" onClick={() => removeThing(thing)}>
-            <i className="fa fa-trash-o"></i>
-          </button>
-        </span>
+        <Actions {...props}/>
       </div>
     </li>
   )

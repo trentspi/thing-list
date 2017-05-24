@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   addThing = () => {
-    const things = {...this.state.things}
+    const things = {...this.state.things} //makes a copy
     const thing = this.thing();
     things[thing.id] = thing;
     this.setState({ things });
