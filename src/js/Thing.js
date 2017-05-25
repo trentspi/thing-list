@@ -22,8 +22,7 @@ class Thing extends React.Component {
       thing,
       saveThing
     } = this.props
-    const field = ev.currentTarget.getAttribute('name');
-    thing[field] = ev.target.value;
+    thing[ev.currentTarget.getAttribute('name')] = ev.target.value;
     saveThing(thing);
   }
 
