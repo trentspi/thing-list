@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import '../css/SignOut.css';
+import '../css/SignOut.css'
 
-const signOut = () => {
+const SignOut = ({ signOut }) => {
   return (
-    <button className="logout">
+    <button
+      className="SignOut"
+      onClick={signOut}>
       Sign Out
     </button>
   )
 }
 
-export default signOut;
+export default SignOut
