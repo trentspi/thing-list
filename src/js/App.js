@@ -24,8 +24,6 @@ class App extends Component {
     )
   }
 
-
-
   authHandler = (authData) => {
     this.setState(
       { uid: authData.user.uid },
@@ -35,7 +33,7 @@ class App extends Component {
 
   syncThings = () => {
     base.syncState(
-      'things',
+      `${this.state.uid}/things`,
       {
         context: this,
         state: 'things'
