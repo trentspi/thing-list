@@ -6,7 +6,9 @@ import '../css/Thing.css';
 
 class Thing extends React.Component {
   componentDidMount() {
-    this.nameInput.htmlEl.focus();
+    if (!this.nameInput.htmlEl.textContent) {
+      this.nameInput.htmlEl.focus()
+    }
   }
 
   blurOnEnter = (ev) => {
@@ -19,11 +21,20 @@ class Thing extends React.Component {
   updateName = (ev) => {
     const {
       thing,
-      saveThing,
-      removeThing
+      saveThing
     } = this.props
     thing.name = ev.target.value;
     saveThing(thing);
+  }
+
+  updateChecked = (ev) => {
+    const {
+      thing,
+      saveThing
+    } = this.props
+    thing.checked = !thing.checked;
+    saveThing(thing);
+
   }
 
 
@@ -36,7 +47,7 @@ class Thing extends React.Component {
     } = this.props
     return (
       <li className="Thing">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={this.updateChecked} checked={thing.checked}/>
         <div className="details">
           <ContentEditable
             className="name"

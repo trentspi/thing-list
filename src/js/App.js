@@ -2,10 +2,22 @@ import React, { Component } from 'react';
 import Header from './Header';
 import AddThing from './AddThing';
 import ThingList from './ThingList';
+import base from './base';
 
 import '../css/App.css';
 
 class App extends Component {
+
+  componentWillMount() {
+    base.syncState(
+      'things',
+      {
+        context: this,
+        state: 'things'
+      }
+    )
+  }
+
   state = {
     things: {}
   }
@@ -14,6 +26,7 @@ class App extends Component {
     return {
       id: `thing-${Date.now()}`,
       name: '',
+      checked: true
     }
   }
 
@@ -32,7 +45,7 @@ class App extends Component {
 
   removeThing = (thing) => {
     const things = {...this.state.things}
-    delete things[thing.id];
+    things[thing.id] = null;
     this.setState({ things });
   }
 
@@ -40,7 +53,7 @@ class App extends Component {
     //this.state.things['thing-2'];
     const actions = {
       saveThing: this.saveThing,
-      removeThing: this.removeThing,
+      removeThing: this.removeThing
     }
 
     return (
