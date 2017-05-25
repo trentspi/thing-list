@@ -61,6 +61,7 @@ class Thing extends React.Component {
             type="date"
             id="datepicker"
             name="dueOn"
+            placeholder="Due Date"
             defaultValue={thing.dueOn}
             onChange={this.handleChange}
           />
