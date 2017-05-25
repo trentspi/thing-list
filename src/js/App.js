@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './Header';
 import AddThing from './AddThing';
 import ThingList from './ThingList';
+import SignOut from './SignOut';
+import SignIn from './SignIn';
 import base from './base';
 
 import '../css/App.css';
@@ -50,6 +52,10 @@ class App extends Component {
     this.setState({ things });
   }
 
+  signedIn = () => {
+    return true;
+  }
+
   render() {
     //this.state.things['thing-2'];
     const actions = {
@@ -60,6 +66,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <SignIn />
+        <SignOut />
         <AddThing addThing={this.addThing}/>
         <ThingList
           things={this.state.things}
