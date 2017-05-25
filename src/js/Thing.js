@@ -3,7 +3,6 @@ import ContentEditable from 'react-contenteditable';
 import Actions from './Actions';
 import '../css/Thing.css';
 
-
 class Thing extends React.Component {
   componentDidMount() {
     if (!this.nameInput.htmlEl.textContent) {
@@ -18,12 +17,13 @@ class Thing extends React.Component {
     }
   }
 
-  updateName = (ev) => {
+  handleChange = (ev) => {
     const {
       thing,
       saveThing
     } = this.props
-    thing.name = ev.target.value;
+    const field = ev.currentTarget.getAttribute('name');
+    thing[field] = ev.target.value;
     saveThing(thing);
   }
 
@@ -51,10 +51,18 @@ class Thing extends React.Component {
         <div className="details">
           <ContentEditable
             className="name"
+            name="name"
             html={thing.name}
-            onChange={this.updateName}
+            onChange={this.handleChange}
             onKeyPress={this.blurOnEnter}
             ref={input => this.nameInput = input}
+          />
+          <input
+            type="date"
+            id="datepicker"
+            name="dueOn"
+            defaultValue={thing.dueOn}
+            onChange={this.handleChange}
           />
           <Actions thing={thing} saveThing={saveThing} removeThing={removeThing} />
         </div>
