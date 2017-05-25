@@ -4,15 +4,17 @@ import {auth, githubProvider} from './base';
 
 import '../css/SignIn.css';
 
-const SignIn = () => {
-  const authenticate = () => {
-    auth.signInWithPopup(githubProvider);
+const SignIn = ({ authHandler }) => {
+  const authenticate = (provider) => {
+    auth
+      .signInWithPopup(provider)
+      //.then(authHandler)
   }
 
   return (
     <button
       className="signin"
-      onClick={authenticate}
+      onClick={() => authenticate(githubProvider)}
     >
       Sign in with GitHub
     </button>
