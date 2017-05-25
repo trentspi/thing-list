@@ -52,8 +52,8 @@ class App extends Component {
     this.setState({ things });
   }
 
-  signedIn = () => {
-    return true;
+  signedIn = (ev) => {
+    return false;
   }
 
   renderMain = () => {
