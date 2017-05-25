@@ -26,7 +26,7 @@ class App extends Component {
     return {
       id: `thing-${Date.now()}`,
       name: '',
-      checked: true
+      checked: ''
     }
   }
 

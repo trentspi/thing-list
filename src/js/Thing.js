@@ -32,7 +32,7 @@ class Thing extends React.Component {
       thing,
       saveThing
     } = this.props
-    thing.checked = !thing.checked;
+    thing.checked = ev.target.checked;
     saveThing(thing);
 
   }
