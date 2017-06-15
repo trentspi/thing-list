@@ -1,5 +1,6 @@
 {
   "name": "thing-list",
+  "homepage": "http://trentspi.github.io/thing-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
